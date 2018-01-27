@@ -33,7 +33,7 @@ module.exports = (IS_DEV_SERVER) => {
       ]
     },
     plugins: IS_DEV_SERVER ? [] : [
-      new CleanWebpackPlugin([outputPath], {verbose: true})
+      new CleanWebpackPlugin(['public'], {verbose: true})
     ]
   };
 };

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "./dev.bash",
     "serve": "./node_modules/.bin/superstatic public",
-    "prod": "NODE_ENV=production && node compiler && ./node_modules/.bin/webpack --mode=production --env.BROWSERS=module && ./node_modules/.bin/webpack --mode=production"
+    "prod": "NODE_ENV=production && ./node_modules/.bin/webpack --mode=production --env.BROWSERS=module && ./node_modules/.bin/webpack --mode=production && node compiler"
   },
   "repository": {
     "type": "git",
