@@ -1,5 +1,4 @@
 const { resolve } = require('path');
-const pkg = require('./package.json');
 const merge = require('webpack-merge');
 const CopyWebpackPlugin = require('./src/utils/modified-copy-webpack-plugin/copy-webpack-plugin');
 const moduleConf = require('./webpack-module.config');
@@ -43,15 +42,15 @@ const copyStatics = {
     {
       from: resolve(__dirname, './node_modules/@webcomponents/shadycss/scoping-shim.min.js'),
       to: 'vendor/scoping-shim.js'
+    },
+    {
+      from: resolve(__dirname, './node_modules/whatwg-fetch/fetch.js'),
+      to: 'vendor/fetch.js'
+    },
+    {
+      from: resolve(__dirname, './src/assets'),
+      to: 'assets'
     }
-    // {
-    //   from: resolve(__dirname, './node_modules/whatwg-fetch/fetch.js'),
-    //   to: '../vendor/fetch.js'
-    // },
-    // {
-    //   from: resolve(__dirname, './src/assets'),
-    //   to: '../assets'
-    // }
   ]
 };
 
@@ -71,7 +70,10 @@ const shared = env => {
       modules: [
         resolve(__dirname, 'node_modules'),
         resolve(__dirname, 'src/components'),
-        resolve(__dirname, 'src/pages')
+        resolve(__dirname, 'src/pages'),
+        resolve(__dirname, 'src/middlewares'),
+        resolve(__dirname, 'src/mixins'),
+        resolve(__dirname, 'src/styles')
       ]
     },
     plugins: [
